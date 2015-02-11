@@ -1,0 +1,8 @@
+prog gnome-terminal		/home/nimda/.icewm/icons/utilities-terminal.png 	gnome-terminal
+prog pcmanfm 			/home/nimda/.icewm/icons/system-file-manager.png 	pcmanfm
+prog chromium 			/home/nimda/.icewm/icons/chromium.png 				chromium
+#prog stable 			/home/nimda/.icewm/icons/geany-blue.png 			geany -i /srv/http/ktcat-stable/project-fixed.geany
+#prog testing 			/home/nimda/.icewm/icons/geany-red.png 				geany -i /srv/http/ktcat-testing/project-fixed.geany
+#prog testing(*) 		/home/nimda/.icewm/icons/geany-red.png 				geany -i /srv/http/ktcat-testing/project-edge.geany
+prog freemind 			/home/nimda/.icewm/icons/freemind.xpm 				freemind
+prog rdp 				/home/nimda/.icewm/icons/windows-icon.png 			/home/nimda/.icewm/bin/rdp_connector.sh

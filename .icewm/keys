@@ -1,0 +1,8 @@
+key "Super+e" pcmanfm
+key "Super+t" xterm
+key "Super+Shift+t" lxterminal
+key "Super+b" chromium
+key "Super+g" geany
+key "Alt+Ctrl+g" mocp -G
+key "Alt+Ctrl+f" mocp -f
+key "Alt+Ctrl+r" mocp -r
