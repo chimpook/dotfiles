@@ -4,36 +4,52 @@ filetype off                  " required
 "=====================================================
 " Vundle settings
 "=====================================================
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'		" let Vundle manage Vundle, required
 
 "---------=== Code/project navigation ===-------------
-Plugin 'scrooloose/nerdtree' 	    	" Project and file navigation
-Plugin 'majutsushi/tagbar'          	" Class/module browser
+
+Plugin 'scrooloose/nerdtree' 	" Project and file navigation
+Plugin 'majutsushi/tagbar'      " Class/module browser
 
 "------------------=== Other ===----------------------
+
 Plugin 'bling/vim-airline'   	    	" Lean & mean status/tabline for vim
 Plugin 'fisadev/FixedTaskList.vim'  	" Pending tasks list
 Plugin 'rosenfeld/conque-term'      	" Consoles as buffers
 Plugin 'tpope/vim-surround'	   	" Parentheses, brackets, quotes, XML tags, and more
+Plugin 'xolox/vim-misc'			" Sessions requirement plugin
+Plugin 'xolox/vim-session'		" Sessions
 
 "--------------=== Snippets support ===---------------
-Plugin 'garbas/vim-snipmate'		" Snippets manager
+
+Plugin 'garbas/vim-snipmate'	" Snippets manager
 Plugin 'MarcWeber/vim-addon-mw-utils'	" dependencies #1
 Plugin 'tomtom/tlib_vim'		" dependencies #2
 Plugin 'honza/vim-snippets'		" snippets repo
 
 "---------------=== Languages support ===-------------
-" --- Python ---
-Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
-Plugin 'davidhalter/jedi-vim' 		" Jedi-vim autocomplete plugin
-Plugin 'mitsuhiko/vim-jinja'		" Jinja support for vim
-Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+
+"---------- PHP -----------
+
+Plugin 'joonty/vim-phpqa'
+
+"------- Python -----------
+
+"Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
+"Plugin 'davidhalter/jedi-vim' 		" Jedi-vim autocomplete plugin
+"Plugin 'mitsuhiko/vim-jinja'		" Jinja support for vim
+"Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
 
 call vundle#end()            		" required
+
+"=====================================================
+
 filetype on
 filetype plugin on
 filetype plugin indent on
@@ -41,6 +57,7 @@ filetype plugin indent on
 "=====================================================
 " General settings
 "=====================================================
+
 set backspace=indent,eol,start
 aunmenu Help.
 aunmenu Window.
@@ -50,14 +67,11 @@ set mousemodel=popup
 set ruler
 set completeopt-=preview
 set gcr=a:blinkon0
+set ttyfast
+syntax on
+
 if has("gui_running")
 	set cursorline
-endif
-set ttyfast
-
-" включить подсветку кода
-syntax on
-if has("gui_running")
 	" GUI? устаналиваем тему и размер окна
 	set lines=50 columns=125
 	colorscheme molokai
@@ -72,10 +86,10 @@ if has("gui_running")
 		set fuoptions=maxvert,maxhorz
 	else
 		" дефолтный GUI
-		set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 10
+		set guifont=Anonymous\Pro\ for\ Powerline\ 10
 	endif
 else
-" терминал?
+	" терминал?
 	colorscheme martin_krischik
 	colorscheme mayansmoke
 endif
@@ -87,12 +101,12 @@ set switchbuf=useopen
 set visualbell t_vb= 
 set novisualbell       
 
-set enc=utf-8     " utf-8 по дефолту в файлах
-set ls=2          " всегда показываем статусбар
-set incsearch     " инкреминтируемый поиск
-set hlsearch    " подсветка результатов поиска
-set nu      	       " показывать номера строк
-set scrolloff=5 	    " 5 строк при скролле за раз
+set enc=utf-8   " utf-8 по дефолту в файлах
+set ls=2      	" всегда показываем статусбар
+set incsearch	" инкреминтируемый поиск
+set hlsearch	" подсветка результатов поиска
+set nu      	" показывать номера строк
+set scrolloff=5 " 5 строк при скролле за раз
 
 " отключаем бэкапы и своп-файлы
 set nobackup 	     " no backup files
@@ -101,13 +115,12 @@ set noswapfile 	     " no swap files
 
 " прячем панельки
 "set guioptions-=m   " меню
-set guioptions-=T    " тулбар
+"set guioptions-=T    " тулбар
 "set guioptions-=r   "  скроллбары
 
 " настройка на Tab
 "set smarttab
-set tabstop=4
-
+set tabstop=4 
 "  при переходе за границу в 80 символов в Ruby/Python/js/C/C++ подсвечиваем на темном фоне текст
 augroup vimrc_autocmds
 	autocmd!
@@ -140,43 +153,43 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '\.class$', 'pip-log\.txt$', '\.o
 "отобразить список тасков на F2
 map <F2> :TaskList<CR>	
 
-" Работа буфферами
+" Работа с буфферами
 map <C-q> :bd<CR> 	   " CTRL+Q - закрыть текущий буффер
 
 "=====================================================
 " Python-mode settings
 "=====================================================
 " отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
+" let g:pymode_rope = 0
+" let g:pymode_rope_completion = 0
+" let g:pymode_rope_complete_on_dot = 0
 
 " документация
-let g:pymode_doc = 0
-let g:pymode_doc_key = 'K'
+"let g:pymode_doc = 0
+"let g:pymode_doc_key = 'K'
 " проверка кода
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_ignore="E501,W601,C0110"
+"let g:pymode_lint = 1
+"let g:pymode_lint_checker = "pyflakes,pep8"
+"let g:pymode_lint_ignore="E501,W601,C0110"
 " провека кода после сохранения
-let g:pymode_lint_write = 1
+"let g:pymode_lint_write = 1
 " поддержка virtualenv
-let g:pymode_virtualenv = 1
+"let g:pymode_virtualenv = 1
 " установка breakpoints
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
+"let g:pymode_breakpoint = 1
+"let g:pymode_breakpoint_key = '<leader>b'
 " подстветка синтаксиса
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
+"let g:pymode_syntax = 1
+"let g:pymode_syntax_all = 1
+"let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+"let g:pymode_syntax_space_errors = g:pymode_syntax_all
 " отключить autofold по коду
-let g:pymode_folding = 0
+"let g:pymode_folding = 0
 " возможность запускать код
-let g:pymode_run = 0
+"let g:pymode_run = 0
 
 " Disable choose first function/method at autocomplete
-let g:jedi#popup_select_first = 0
+"let g:jedi#popup_select_first = 0
 
 " Disable choose first function/method at autocomplete
 " let g:jedi#popup_select_first = 0
@@ -186,23 +199,34 @@ let g:jedi#popup_select_first = 0
 "=====================================================
 "" ConqueTerm
 " запуск интерпретатора на F5
-nnoremap <F5> :ConqueTermSplit ipython<CR>
-" " а debug-mode на <F6>
+"nnoremap <F5> :ConqueTermSplit ipython<CR>
+"" а debug-mode на <F6>
 "nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR>
-let g:ConqueTerm_StartMessages = 0
-let g:ConqueTerm_CloseOnEnd = 0
+"let g:ConqueTerm_StartMessages = 0
+"let g:ConqueTerm_CloseOnEnd = 0
 " " проверка кода в соответствии с PEP8 через <leader>8
-autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
+"autocmd FileType python map <buffer> <leader>8 :PymodeLint<CR>
 "
-" " автокомплит через <Ctrl+Space>
-inoremap <C-space> <C-x><C-o>
+"" автокомплит через <Ctrl+Space>
+"inoremap <C-space> <C-x><C-o>
 "
-" " переключение между синтаксисами
-nnoremap <leader>Th :set ft=htmljinja<CR>
-nnoremap <leader>Tp :set ft=python<CR>
-nnoremap <leader>Tj :set ft=javascript<CR>
-nnoremap <leader>Tc :set ft=css<CR>
-nnoremap <leader>Td :set ft=django<CR>
+"" переключение между синтаксисами
+"nnoremap <leader>Th :set ft=htmljinja<CR>
+"nnoremap <leader>Tp :set ft=python<CR>
+"nnoremap <leader>Tj :set ft=javascript<CR>
+"nnoremap <leader>Tc :set ft=css<CR>
+"nnoremap <leader>Td :set ft=django<CR>
+
+" Run python code
+"nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+"nnoremap <silent> <F6> :!clear;python %<CR>
+
+"=====================================================
+" PHP-mode settings
+"=====================================================
+
+" Check php code
+nnoremap <buffer> <F9> :exec '!php -l %' shellexcape(@%, 1)<cr>
 
 "=====================================================
 "" Languages support
@@ -236,6 +260,5 @@ autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/sc
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
-" Run python code
-"nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
-nnoremap <silent> <F6> :!clear;python %<CR>
+" --- PHP ---
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
