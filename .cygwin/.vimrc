@@ -1,5 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible                        " be iMproved, required
+filetype off                            " required
 
 "=====================================================
 " Vundle settings
@@ -10,34 +10,38 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'		" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'		        " let Vundle manage Vundle, required
 
 "---------=== Code/project navigation ===-------------
 
-Plugin 'scrooloose/nerdtree' 	" Project and file navigation
-Plugin 'majutsushi/tagbar'      " Class/module browser
+Plugin 'scrooloose/nerdtree' 	        " Project and file navigation
+Plugin 'majutsushi/tagbar'              " Class/module browser
 
 "------------------=== Other ===----------------------
 
-Plugin 'bling/vim-airline'   	    	" Lean & mean status/tabline for vim
-Plugin 'fisadev/FixedTaskList.vim'  	" Pending tasks list
-Plugin 'rosenfeld/conque-term'      	" Consoles as buffers
-Plugin 'tpope/vim-surround'	   	" Parentheses, brackets, quotes, XML tags, and more
-Plugin 'xolox/vim-misc'			" Sessions requirement plugin
-Plugin 'xolox/vim-session'		" Sessions
+Plugin 'bling/vim-airline'   	        " Lean & mean status/tabline for vim
+Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
+Plugin 'rosenfeld/conque-term'          " Consoles as buffers
+Plugin 'tpope/vim-surround'	   	        " Parentheses, brackets, quotes, XML tags, and more
+Plugin 'xolox/vim-misc'			        " Sessions requirement plugin
+Plugin 'xolox/vim-session'		        " Sessions
+Plugin 'vim-scripts/closetag.vim'
 
 "--------------=== Snippets support ===---------------
 
-Plugin 'garbas/vim-snipmate'	" Snippets manager
+Plugin 'garbas/vim-snipmate'	        " Snippets manager
 Plugin 'MarcWeber/vim-addon-mw-utils'	" dependencies #1
-Plugin 'tomtom/tlib_vim'		" dependencies #2
-Plugin 'honza/vim-snippets'		" snippets repo
+Plugin 'tomtom/tlib_vim'		        " dependencies #2
+Plugin 'honza/vim-snippets'		        " snippets repo
 
 "---------------=== Languages support ===-------------
 
 "---------- PHP -----------
 
 Plugin 'joonty/vim-phpqa'
+Plugin 'SirVer/ultisnips'
+Plugin 'tobyS/vmustache'
+Bundle 'tobyS/pdv'
 
 "------- Python -----------
 
@@ -69,6 +73,7 @@ set completeopt-=preview
 set gcr=a:blinkon0
 set ttyfast
 syntax on
+set cursorline
 
 if has("gui_running")
 	set cursorline
@@ -222,15 +227,9 @@ map <C-q> :bd<CR> 	   " CTRL+Q - закрыть текущий буффер
 "nnoremap <silent> <F6> :!clear;python %<CR>
 
 "=====================================================
-" PHP-mode settings
-"=====================================================
-
-" Check php code
-nnoremap <buffer> <F9> :exec '!php -l %' shellexcape(@%, 1)<cr>
-
-"=====================================================
 "" Languages support
 "=====================================================
+
 "" --- Python ---
 autocmd FileType python set completeopt-=preview " раскомментируйте, в случае, если не надо, чтобы jedi-vim показывал документацию по методу/классу
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=8 formatoptions+=croq softtabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
@@ -243,8 +242,7 @@ autocmd BufNewFile,BufRead *.json setlocal ft=javascript
 
 " --- HTML ---
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"
-"  " --- template language support (SGML / XML too) ---
+" --- template language support (SGML / XML too) ---
 autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 autocmd bufnewfile,bufread *.rhtml setlocal ft=eruby
 autocmd BufNewFile,BufRead *.mako setlocal ft=mako
@@ -254,7 +252,7 @@ let html_no_rendering=1
 let g:closetag_default_xml=1
 let g:sparkupNextMapping='<c-l>'
 autocmd FileType html,htmldjango,htmljinja,eruby,mako let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/scripts/closetag.vim
+autocmd FileType html,xhtml,xml,htmldjango,htmljinja,eruby,mako source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
 " --- CSS ---
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
@@ -262,3 +260,14 @@ autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 
 " --- PHP ---
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+" Check php code
+nnoremap <buffer> <F9> :exec '!php -l %' shellexcape(@%, 1)<cr>
+" PHP documenter script bound to Control-P
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates"
+autocmd FileType php nnoremap <buffer> <C-p> :call pdv#DocumentCurrentLine()<CR>
+"autocmd FileType php nnoremap <buffer> <C-p> :call pdv#DocumentWithSnip()<CR>
+"autocmd FileType php inoremap <C-p> <ESC>:call PhpDocSingle()<CR>i
+"autocmd FileType php nnoremap <C-p> :call PhpDocSingle()<CR>
+"autocmd FileType php vnoremap <C-p> :call PhpDocRange()<CR>
+let g:phpqa_codesniffer_args = "--standard=Zend"
+let g:phpqa_codesniffer_autorun = 1
