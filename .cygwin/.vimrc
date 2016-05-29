@@ -20,6 +20,7 @@ Plugin 'majutsushi/tagbar'              " Class/module browser
 "------------------=== Other ===----------------------
 
 Plugin 'bling/vim-airline'   	        " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline-themes' " Thtmes for vim-airline
 Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-surround'	   	        " Parentheses, brackets, quotes, XML tags, and more
