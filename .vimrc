@@ -10,7 +10,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'		        " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'		        " let Vundle manage Vundle, required
 
 "---------=== Code/project navigation ===-------------
 
@@ -19,7 +19,9 @@ Plugin 'majutsushi/tagbar'              " Class/module browser
 
 "------------------=== Other ===----------------------
 
-Plugin 'bling/vim-airline'   	        " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline'   	        " Lean & mean status/tabline for vim
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'powerline/fonts'
 Plugin 'fisadev/FixedTaskList.vim'      " Pending tasks list
 Plugin 'rosenfeld/conque-term'          " Consoles as buffers
 Plugin 'tpope/vim-surround'	   	        " Parentheses, brackets, quotes, XML tags, and more
@@ -74,29 +76,14 @@ set gcr=a:blinkon0
 set ttyfast
 syntax on
 
-if has("gui_running")
-	set cursorline
-	" GUI? устаналиваем тему и размер окна
-	set lines=50 columns=125
-	colorscheme molokai
-    " раскомментируйте эти строки, если хотите, чтобы NERDTree/TagBar автоматически отображались при запуске vim
-	" autocmd vimenter * TagbarToggle
-	" autocmd vimenter * NERDTree
-	" autocmd vimenter * if !argc() | NERDTree | endif
-
-	" на маке vim?
- 	if has("mac")
-		set guifont=Consolas:h13
-		set fuoptions=maxvert,maxhorz
-	else
-		" дефолтный GUI
-		set guifont=Anonymous\Pro\ for\ Powerline\ 10
-	endif
-else
-	" терминал?
-	colorscheme martin_krischik
-	colorscheme mayansmoke
-endif
+set cursorline
+" раскомментируйте эти строки, если хотите, чтобы NERDTree/TagBar автоматически отображались при запуске vim
+" autocmd vimenter * TagbarToggle
+" autocmd vimenter * NERDTree
+" autocmd vimenter * if !argc() | NERDTree | endif
+" set guifont=Anonymous\Pro\ for\ Powerline:h16
+colorscheme martin_krischik
+colorscheme mayansmoke
 
 tab sball
 set switchbuf=useopen
@@ -159,6 +146,9 @@ map <F2> :TaskList<CR>
 
 " Работа с буфферами
 map <C-q> :bd<CR> 	   " CTRL+Q - закрыть текущий буффер
+
+" Сохранение сессий
+let g:session_autoload = 'no'
 
 "=====================================================
 " Python-mode settings
