@@ -1,0 +1,17 @@
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda1
+UUID=3eb35c96-764d-4cea-a167-42b81ce67c76	/         	ext4      	rw,relatime,data=ordered	0 1
+
+# /dev/sda3
+UUID=4e8d551f-db03-4d20-b405-48fb3312ae7d	none      	swap      	defaults,pri=-2	0 0
+UUID=2ddd50ce-243f-4377-b6fe-8738eeacb861	/mnt/data	ext4		defaults,noatime	0 0
+//10.0.103.231/distrib  /mnt/estp/distrib   cifs    cred=/etc/cifs-estp-cred.cfg,workgroup=estp,user,vers=1.0,x-systemd.automount    0 0
+//10.0.103.231/estp     /mnt/estp/common        cifs    cred=/etc/cifs-estp-cred.cfg,workgroup=estp,user,vers=1.0,x-systemd.automount     0 0
+//10.0.103.231/sveselovskiy     /mnt/estp/sveselovskiy  cifs    cred=/etc/cifs-estp-cred.cfg,workgroup=estp,uid=1000,gid=1000,user,vers=1.0,x-systemd.automount      0 0
+//10.0.103.231/alitvinenko      /mnt/estp/alitvinenko   cifs    cred=/etc/cifs-estp-cred2.cfg,workgroup=estp,uid=1000,gid=1000,user,vers=1.0,x-systemd.automount      0 0
+10.0.103.206:www_estp/estp/upload /mnt/estp/upload nfs user,noatime,rw,timeo=14,_netdev,x-systemd.automount     0 0
+10.0.103.206:www_estp/cer /mnt/estp/cer nfs user,noatime,rw,timeo=14,_netdev,x-systemd.automount    0 0
+# ,_netdev,x-systemd.after=network-online.target 

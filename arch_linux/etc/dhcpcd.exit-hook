@@ -1,0 +1,4 @@
+
+#ip route delete default
+#ip route add default via 10.0.103.254
+# dev enp0s25 proto static metric 100

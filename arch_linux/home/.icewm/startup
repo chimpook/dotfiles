@@ -1,0 +1,13 @@
+#!/bin/sh
+#pcmanfm --desktop &
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1&
+#[ -x /usr/bin/xscreensaver ] && /usr/bin/xscreensaver -no-splash&
+#[ -x /usr/bin/gkrellm ] && /usr/bin/gkrellm&
+#icewmtray& ( sleep 2s; xxkb )&
+[ -x /usr/bin/xxkb ] && ( sleep 2s; /usr/bin/xxkb )&
+#[ -x /usr/bin/dropboxd ] && /usr/bin/dropboxd start&
+#[ -x /usr/bin/psi ] && /usr/bin/psi&
+#[ -x /usr/bin/pidgin ] && /usr/bin/pidgin&
+#[ -x /usr/bin/claws-mail ] && /usr/bin/claws-mail&
+#[ -x /usr/bin/thunderbird ] && /usr/bin/thunderbird&
+#exit 0

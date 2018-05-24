@@ -1,0 +1,7 @@
+prog xterm		/home/sveselovskiy/.icewm/icons/utilities-terminal.png 	xterm
+prog pcmanfm 	/home/sveselovskiy/.icewm/icons/system-file-manager.png pcmanfm
+prog chromium 	/home/sveselovskiy/.icewm/icons/chromium.png 			chromium
+prog telegram   /home/sveselovskiy/.icewm/icons/telegram.png            /mnt/data/apps/Telegram/Telegram
+prog freemind   /home/sveselovskiy/.icewm/icons/freemind.xpm 			freemind
+prog phpstorm   /home/sveselovskiy/.icewm/icons/phpstorm.png            /mnt/data/apps/PhpStorm-181.5087.24/bin/phpstorm.sh 
+prog datagrip   /home/sveselovskiy/.icewm/icons/datagrip.png            /mnt/data/apps/DataGrip-2018.1.3/bin/datagrip.sh

@@ -1,0 +1,58 @@
+prog "pcmanfm" 			/home/sveselovskiy/.icewm/icons/system-file-manager.png 		pcmanfm
+prog "chromium" 		/home/sveselovskiy/.icewm/icons/chromium.png 					chromium
+prog "firefox" 			/home/sveselovskiy/.icewm/icons/firefox.png 					firefox
+prog "opera" 			/home/sveselovskiy/.icewm/icons/opera-browser.png 				opera
+prog "freemind" 		/home/sveselovskiy/.icewm/icons/freemind.xpm 					freemind
+prog "libreoffice" 		/home/sveselovskiy/.icewm/icons/libreoffice-startcenter.png 	libreoffice
+prog "leafpad" 			/home/sveselovskiy/.icewm/icons/leafpad.png 					leafpad
+prog "gedit" 			/home/sveselovskiy/.icewm/icons/accessories-text-editor.png 	gedit
+prog "geany" 			/home/sveselovskiy/.icewm/icons/geany.png 						geany 
+prog "gimp"  			/home/sveselovskiy/.icewm/icons/gimp.png 						gimp
+
+#menuprogreload ps 		/home/sveselovskiy/.icewm/icons/utilities-system-monitor.png 0 /home/sveselovskiy/.icewm/bin/icewm-ps-menu.sh
+
+menu "apps" folder {
+
+	menu "utils" folder {
+		prog "lxterminal" 	/home/sveselovskiy/.icewm/icons/utilities-terminal.png 		lxterminal
+		prog "pcmanfm" 			/home/sveselovskiy/.icewm/icons/system-file-manager.png 		pcmanfm
+		prog "leafpad" 			/home/sveselovskiy/.icewm/icons/leafpad.png 					leafpad
+		prog "gucharmap" 		/home/sveselovskiy/.icewm/icons/accessories-character-map.png 	gucharmap
+		prog "gedit" 			/home/sveselovskiy/.icewm/icons/accessories-text-editor.png 	gedit
+		prog "xarchiver" 		/home/sveselovskiy/.icewm/icons/xarchiver.png 					xarchiver
+		prog "gparted"	 		/home/sveselovskiy/.icewm/icons/gparted.png 					gparted 
+		prog "cups" 			/home/sveselovskiy/.icewm/icons/document-print.png 			chromium http://localhost:631/
+	}
+
+	menu "graphics" folder {
+		prog "geeqie" 	/home/sveselovskiy/.icewm/icons/geeqie.png 			geeqie -r 
+		prog "gimp"  	/home/sveselovskiy/.icewm/icons/gimp.png 				gimp
+		prog "dia" 		/home/sveselovskiy/.icewm/icons/dia.png 				dia 
+		prog "draw" 	/home/sveselovskiy/.icewm/icons/libreoffice-draw.png 	libreoffice --draw 
+	}
+	
+	menu "net" folder {
+		prog "chromium" 			/home/sveselovskiy/.icewm/icons/chromium.png 		chromium
+		prog "firefox" 				/home/sveselovskiy/.icewm/icons/firefox.png 		firefox
+		prog "opera" 				/home/sveselovskiy/.icewm/icons/opera-browser.png 	opera
+		prog "thunderbird" 			/home/sveselovskiy/.icewm/icons/thunderbird.png	thunderbird
+		prog "telegram" 			/home/sveselovskiy/.icewm/icons/telegram.png	/mnt/data/apps/Telegram/Telegram
+	}
+	
+	menu "office" folder { 
+		prog "writer" 	/home/sveselovskiy/.icewm/icons/libreoffice-writer.png 	libreoffice --writer 
+		prog "calc" 	/home/sveselovskiy/.icewm/icons/libreoffice-calc.png 		libreoffice --calc 
+		prog "draw" 	/home/sveselovskiy/.icewm/icons/libreoffice-draw.png 		libreoffice --draw 
+		prog "impress" 	/home/sveselovskiy/.icewm/icons/libreoffice-impress.png 	libreoffice --impress 
+		prog "base" 	/home/sveselovskiy/.icewm/icons/libreoffice-base.png 		libreoffice --base 
+	}
+	
+	menu "develop" folder {
+		prog "geany" 	/home/sveselovskiy/.icewm/icons/geany.png geany 
+	}
+	
+	menu "media" folder {
+		prog "audacious" 	/home/sveselovskiy/.icewm/icons/audacious.png 		audacious 
+		prog "vlc" 			/home/sveselovskiy/.icewm/icons/vlc.png 			vlc 
+	}
+}
