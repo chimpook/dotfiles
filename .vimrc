@@ -149,6 +149,7 @@ map <C-q> :bd<CR> 	   " CTRL+Q - закрыть текущий буффер
 
 " Сохранение сессий
 let g:session_autoload = 'no'
+let g:session_autosave = 'no'
 
 "=====================================================
 " Python-mode settings
